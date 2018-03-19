@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>A Simple Map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        .marker {
+  background-image: url('location.png');
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+        
+        
+              
+    </style>
+</head>
+
+<body>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
+<div id='map'></div>
+
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibmFuYWhhbXphdCIsImEiOiJjamVlem95bzIxYWpkMndvZDBmN2prZWF3In0.CDHfi4Iqc6yHuI0UK2ufqw';
+var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
+    center: [11.3370465, 2.173458], // starting position [lng, lat]
+    zoom: 7 // starting zoom
+});
+    
+var store1 = 
+   {
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "osm_id": "251608438", "name": "Bata", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": null, "place": "city", "man_made": null, "other_tags": "\"is_in:continent\"=>\"Africa\",\"name:en\"=>\"Bata\",\"name:hu\"=>\"Bata\",\"name:ru\"=>\"Бата\",\"name:uk\"=>\"Бата\",\"population\"=>\"230282\",\"start_date\"=>\"1900\",\"wikidata\"=>\"Q320792\",\"wikipedia\"=>\"es:Bata (Guinea Ecuatorial)\"" }, "geometry": { "type": "Point", "coordinates": [ 9.768665, 1.8650897 ] } },
+{ "type": "Feature", "properties": { "osm_id": "251608606", "name": "Kye Ossi", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": null, "place": "village", "man_made": null, "other_tags": null }, "geometry": { "type": "Point", "coordinates": [ 11.3370465, 2.173458 ] } },
+{ "type": "Feature", "properties": { "osm_id": "292521364", "name": "Malabo", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": "Equatorial Guinea", "place": "city", "man_made": null, "other_tags": "\"admin_level\"=>\"2\",\"capital\"=>\"yes\",\"capital_ISO3166-1\"=>\"yes\",\"is_capital\"=>\"country\",\"is_in:continent\"=>\"Africa\",\"is_in:country\"=>\"Equatorial Guinea\",\"is_in:country_code\"=>\"GQ\",\"is_in:state\"=>\"Bioko Norte\",\"name:am\"=>\"ማላቦ\",\"name:ar\"=>\"مالابو\",\"name:be\"=>\"Малаба\",\"name:be-tarask\"=>\"Маляба\",\"name:bg\"=>\"Малабо\",\"name:bo\"=>\"མ་ལ་བོ།\",\"name:ckb\"=>\"مالابۆ\",\"name:cs\"=>\"Malabo\",\"name:de\"=>\"Malabo\",\"name:el\"=>\"Μαλάμπο\",\"name:es\"=>\"Malabo\",\"name:fa\"=>\"مالابو\",\"name:he\"=>\"מלאבו\",\"name:hy\"=>\"Մալաբո\",\"name:is\"=>\"Malabó\",\"name:ja\"=>\"マラボ\",\"name:ka\"=>\"მალაბო\",\"name:ko\"=>\"말라보\",\"name:ky\"=>\"Малабо\",\"name:lt\"=>\"Malabas\",\"name:mk\"=>\"Малабо\",\"name:mr\"=>\"मलाबो\",\"name:mrj\"=>\"Малабо\",\"name:pl\"=>\"Malabo\",\"name:pnb\"=>\"مالابو\",\"name:ru\"=>\"Малабо\",\"name:sr\"=>\"Малабо\",\"name:sv\"=>\"Malabo\",\"name:tg\"=>\"Малабо\",\"name:th\"=>\"มาลาโบ\",\"name:udm\"=>\"Малабо\",\"name:uk\"=>\"Малабо\",\"name:ur\"=>\"ملابو\",\"name:zh\"=>\"馬拉博\",\"name:zh-yue\"=>\"馬拉博\",\"old_name\"=>\"Santa Isabel\",\"old_name2\"=>\"Port Clarence\",\"population\"=>\"187302\",\"wikidata\"=>\"Q3818\",\"wikipedia\"=>\"en:Malabo\"" }, "geometry": { "type": "Point", "coordinates": [ 8.780061, 3.752828 ] } },
+{ "type": "Feature", "properties": { "osm_id": "292522535", "name": "Lubá", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": null, "place": "town", "man_made": null, "other_tags": "\"is_capital\"=>\"state\",\"is_in:continent\"=>\"Africa\",\"is_in:country\"=>\"Equatorial Guinea\",\"is_in:state\"=>\"Bioko Sur\",\"name:es\"=>\"San Carlos de Lubá\",\"name:ru\"=>\"Луба\",\"old_name\"=>\"San Carlos\",\"population\"=>\"7000\",\"wikidata\"=>\"Q985548\",\"wikipedia\"=>\"en:Luba, Equatorial Guinea\"" }, "geometry": { "type": "Point", "coordinates": [ 8.5510895, 3.4615545 ] } },
+{ "type": "Feature", "properties": { "osm_id": "292523074", "name": "Bioko", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": null, "place": "island", "man_made": null, "other_tags": "\"name:hu\"=>\"Bioko szigete\",\"alt_name\"=>\"Fernando Poo\",\"old_name\"=>\"Fernando Poo\",\"wikidata\"=>\"Q205022\",\"is_in:sea\"=>\"Gulf of Guinea\",\"population\"=>\"130000\",\"is_in:ocean\"=>\"Atlantic Ocean\",\"is_in:country\"=>\"Equatorial Guinea\"" }, "geometry": { "type": "Point", "coordinates": [ 8.6825712, 3.4783529 ] } },
+{ "type": "Feature", "properties": { "osm_id": "292525184", "name": "Annobón", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": null, "place": "island", "man_made": null, "other_tags": "\"name:en\"=>\"Annobón Province\",\"name:hu\"=>\"Annobón\",\"name:ja\"=>\"アンノボン島\",\"name:ka\"=>\"ანობონის პროვინცია\",\"name:ko\"=>\"안노본 섬\",\"name:lt\"=>\"Anobonas\",\"name:pl\"=>\"Pagalu\",\"name:pt\"=>\"Ano Bom\",\"name:ru\"=>\"Аннобон\",\"name:uk\"=>\"Аннобон\",\"name:zh\"=>\"安诺本岛\",\"wikidata\"=>\"Q3736616\",\"wikipedia\"=>\"es:Annobón\",\"Schalansky_ref\"=>\"40\"" }, "geometry": { "type": "Point", "coordinates": [ 5.6350749, -1.4309167 ] } },
+{ "type": "Feature", "properties": { "osm_id": "292526515", "name": "Quioveo", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": null, "place": null, "man_made": null, "other_tags": "\"natural\"=>\"peak\"" }, "geometry": { "type": "Point", "coordinates": [ 5.6333519, -1.4406972 ] } },
+{ "type": "Feature", "properties": { "osm_id": "292527388", "name": "San Antonio de Palé", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": "Annobón Province,Equatorial Guinea", "place": "town", "man_made": null, "other_tags": "\"is_in:continent\"=>\"Africa\",\"name:es\"=>\"San Antonio de la Playa\",\"name:lt\"=>\"San Antonio de Palė\",\"population\"=>\"5008\",\"start_date\"=>\"1777\",\"wikidata\"=>\"Q1001897\",\"wikipedia\"=>\"en:San Antonio de Palé\",\"wikipedia:es\"=>\"San_Antonio_de_Palé\"" }, "geometry": { "type": "Point", "coordinates": [ 5.6314731, -1.4040418 ] } },
+{ "type": "Feature", "properties": { "osm_id": "292530328", "name": "Bata Airport", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": null, "place": null, "man_made": null, "other_tags": "\"iata\"=>\"BSG\",\"icao\"=>\"FGBT\",\"aeroway\"=>\"aerodrome\",\"name:en\"=>\"Bata Airport\",\"wikidata\"=>\"Q2707180\",\"wikipedia\"=>\"en:Bata Airport\",\"closest_town\"=>\"Bata, Equatorial Guinea\",\"aerodrome:type\"=>\"public\"" }, "geometry": { "type": "Point", "coordinates": [ 9.7998441, 1.9017801 ] } },
+{ "type": "Feature", "properties": { "osm_id": "366511368", "name": "Pico Gran Caldera", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": null, "place": null, "man_made": null, "other_tags": "\"status\"=>\"extinct\",\"natural\"=>\"volcano\",\"alt_name\"=>\"San Carlos\",\"wikidata\"=>\"Q7413507\",\"wikipedia\"=>\"en:San Carlos (Equatorial Guinea)\",\"is_in:state\"=>\"Bioko Sur\",\"volcano:type\"=>\"shield\",\"is_in:country\"=>\"Equatorial Guinea\",\"is_in:continent\"=>\"Africa\"" }, "geometry": { "type": "Point", "coordinates": [ 8.5392619, 3.3581018 ] } },
+{ "type": "Feature", "properties": { "osm_id": "366513007", "name": "Rebola", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": "Equatorial Guinea", "place": "town", "man_made": null, "other_tags": "\"is_capital\"=>\"state\",\"is_in:continent\"=>\"Africa\",\"is_in:country\"=>\"Equatorial Guinea\",\"is_in:state\"=>\"Bioko Norte\",\"population\"=>\"8259\",\"wikidata\"=>\"Q2720928\",\"wikipedia\"=>\"en:Rebola, Equatorial Guinea\"" }, "geometry": { "type": "Point", "coordinates": [ 8.8361665, 3.7278854 ] } },
+{ "type": "Feature", "properties": { "osm_id": "366513195", "name": "Riaba", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": "Equatorial Guinea", "place": "village", "man_made": null, "other_tags": "\"is_in:continent\"=>\"Africa\",\"is_in:country\"=>\"Equatorial Guinea\",\"is_in:state\"=>\"Bioko Sur\",\"name:es\"=>\"Concepción de Riaba\",\"old_name\"=>\"Concepción\",\"wikidata\"=>\"Q2604278\",\"wikipedia\"=>\"en:Riaba\"" }, "geometry": { "type": "Point", "coordinates": [ 8.7629712, 3.3854557 ] } },
+{ "type": "Feature", "properties": { "osm_id": "366513501", "name": "Punta Europa", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": "Malabo,Bioko Island,Equatorial Guinea", "place": "locality", "man_made": null, "other_tags": "\"natural\"=>\"cape\",\"is_in:country\"=>\"Equatorial Guinea\"" }, "geometry": { "type": "Point", "coordinates": [ 8.7105789, 3.777085 ] } },
+{ "type": "Feature", "properties": { "osm_id": "366514155", "name": "Bioko Norte", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": null, "place": "state", "man_made": null, "other_tags": "\"capital_city\"=>\"Rebola\",\"is_in:country\"=>\"Equatorial Guinea\",\"is_in:island\"=>\"Bioko Island\",\"name:de\"=>\"Nordbioko\",\"name:es\"=>\"Bioko Norte\",\"name:fr\"=>\"Bioko Nord\",\"name:pt\"=>\"Bioko Norte\",\"name:ru\"=>\"Северный Биоко\",\"name:uk\"=>\"Бйоко Норте\",\"wikidata\"=>\"Q845834\",\"wikipedia\"=>\"en:Bioko Norte Province\"" }, "geometry": { "type": "Point", "coordinates": [ 8.7851155, 3.6484594 ] } },
+{ "type": "Feature", "properties": { "osm_id": "366514518", "name": "Bioko Sur", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": null, "place": "state", "man_made": null, "other_tags": "\"capital_city\"=>\"Luba\",\"is_in:country\"=>\"Equatorial Guinea\",\"is_in:island\"=>\"Bioko Island\",\"name:de\"=>\"Südbioko\",\"name:es\"=>\"Bioko Sur\",\"name:fr\"=>\"Bioko Sud\",\"name:pt\"=>\"Bioko Sul\",\"name:ru\"=>\"Южный Биоко\",\"name:uk\"=>\"Бйоко Сур\",\"wikidata\"=>\"Q845817\",\"wikipedia\"=>\"en:Bioko Sur Province\"" }, "geometry": { "type": "Point", "coordinates": [ 8.6646092, 3.4245254 ] } },
+{ "type": "Feature", "properties": { "osm_id": "424313853", "name": "Guinea Ecuatorial", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": null, "place": "country", "man_made": null, "other_tags": "\"capital_city\"=>\"Malabo\",\"country_code_fips\"=>\"EK\",\"country_code_iso3166_1_alpha_2\"=>\"GQ\",\"geonames:id\"=>\"2309096\",\"int_name\"=>\"Equatorial Guinea\",\"is_in:continent\"=>\"Africa\",\"name:af\"=>\"Ekwatoriaal-Guinee\",\"name:ak\"=>\"Gini Ikuweta\",\"name:als\"=>\"Äquatorialguinea\",\"name:am\"=>\"ኢኳቶሪያል ጊኔ\",\"name:an\"=>\"Guinea Ecuatorial\",\"name:ar\"=>\"غينيا الاستوائية\",\"name:arz\"=>\"جينيا الاستوائيه\",\"name:ast\"=>\"Guinea Ecuatorial\",\"name:az\"=>\"Ekvatorial Qvineya\",\"name:bat-smg\"=>\"Ekvatuorė Gvinėjė\",\"name:bcl\"=>\"Guineyang Ekwatoryal\",\"name:be\"=>\"Экватарыяльная Гвінея\",\"name:be-tarask\"=>\"Экватарыяльная Ґвінэя\",\"name:bg\"=>\"Екваториална Гвинея\",\"name:bjn\"=>\"Guinea Katulistiwa\",\"name:bm\"=>\"Cemajan Gine\",\"name:bn\"=>\"নিরক্ষীয় গিনি\",\"name:bo\"=>\"ཨི་ཁུའ་ཊོ་རལ་གི་ནེ།\",\"name:bpy\"=>\"একুয়াটরিয়াল গায়ানা\",\"name:br\"=>\"Ginea ar C’heheder\",\"name:bs\"=>\"Ekvatorijalna Gvineja\",\"name:bxr\"=>\"Экваторын Гвиней\",\"name:ca\"=>\"Guinea Equatorial\",\"name:ce\"=>\"Дуьнена асанан Гвине\",\"name:ceb\"=>\"Guinea Ecuatorial\",\"name:chr\"=>\"ᎡᏆᏙᎵᎠᎵ ᎩᎢᏂ\",\"name:ckb\"=>\"گینێی ئیستوایی\",\"name:co\"=>\"Guinea Equatoriale\",\"name:crh\"=>\"Ekvatorial Gvineya\",\"name:cs\"=>\"Rovníková Guinea\",\"name:cv\"=>\"Экваториаллӑ Гвиней\",\"name:cy\"=>\"Guinea Gyhydeddol\",\"name:da\"=>\"Ækvatorialguinea\",\"name:de\"=>\"Äquatorialguinea\",\"name:diq\"=>\"Gineya Ekwatori\",\"name:dsb\"=>\"Ekwatorialna Guineja\",\"name:dv\"=>\"އިކުއެޓޯރިއަލް ގިނީ\",\"name:dz\"=>\"ཨེ་ཀུ་ཊོ་རེལ་ གི་ནི\",\"name:ee\"=>\"Ekuatorial Guini nutome\",\"name:el\"=>\"Ισημερινή Γουινέα\",\"name:en\"=>\"Equatorial Guinea\",\"name:eo\"=>\"Ekvatora Gvineo\",\"name:es\"=>\"Guinea Ecuatorial\",\"name:et\"=>\"Ekvatoriaal-Guinea\",\"name:eu\"=>\"Ekuatore Ginea\",\"name:ext\"=>\"Guinea Equatorial\",\"name:fa\"=>\"گینه استوایی\",\"name:ff\"=>\"Ginee Ekuwaatoriyaal\",\"name:fi\"=>\"Päiväntasaajan Guinea\",\"name:fiu-vro\"=>\"Ekvatoriaal-Ginea\",\"name:fo\"=>\"Ekvatorguinea\",\"name:fr\"=>\"Guinée équatoriale\",\"name:frp\"=>\"Guinê èquatoriâla\",\"name:fur\"=>\"Guinee ecuatoriâl\",\"name:fy\"=>\"Ekwatoriaal Guinee\",\"name:ga\"=>\"An Ghuine Mheánchriosach\",\"name:gag\"=>\"Ekvatorial Gvineya\",\"name:gd\"=>\"Gini Mheadhan-Chriosach\",\"name:gl\"=>\"Guinea Ecuatorial\",\"name:gu\"=>\"ઇક્વેટોરિયલ ગિની\",\"name:gv\"=>\"Guinea Chryss ny Cruinney\",\"name:ha\"=>\"Gini Ta Ikwaita\",\"name:he\"=>\"גיניאה המשוונית\",\"name:hi\"=>\"ईक्वीटोरियल गिनी\",\"name:hif\"=>\"Equatorial Guinea\",\"name:hr\"=>\"Ekvatorska Gvineja\",\"name:hsb\"=>\"Ekwatorialna Gineja\",\"name:ht\"=>\"Gine ekwateryal\",\"name:hu\"=>\"Egyenlítői-Guinea\",\"name:hy\"=>\"Հասարակածային Գվինեա\",\"name:ia\"=>\"Guinea Equatorial\",\"name:id\"=>\"Guinea Khatulistiwa\",\"name:ie\"=>\"Equatorial Guinéa\",\"name:ilo\"=>\"Guinea Ekuatorial\",\"name:io\"=>\"Equatorala Guinea\",\"name:is\"=>\"Miðbaugs-Gínea\",\"name:it\"=>\"Guinea Equatoriale\",\"name:ja\"=>\"赤道ギニア\",\"name:jbo\"=>\"guineas. zei brazbani\",\"name:jv\"=>\"Guinea Khatulistiwa\",\"name:ka\"=>\"ეკვატორული გვინეა\",\"name:kaa\"=>\"Ekvatorial Gvineya\",\"name:kab\"=>\"Ɣinya Tasebgast\",\"name:ki\"=>\"Ginekweta\",\"name:kk\"=>\"Екуатор Гиния\",\"name:km\"=>\"ហ្គីណេអេក្វាទ័រ\",\"name:kn\"=>\"ವಿಷುವದ್ರೇಖೆಯ ಗಿನಿ\",\"name:ko\"=>\"적도 기니\",\"name:ks\"=>\"اِکوِٹورِیَل گِنی\",\"name:ksh\"=>\"Äquatorial Jineeja\",\"name:ku\"=>\"Gînêya Rojbendî\",\"name:kw\"=>\"Gyni Ekwadoriel\",\"name:la\"=>\"Guinea Aequatorensis\",\"name:lb\"=>\"Equatorialguinea\",\"name:lez\"=>\"Экваториал Гвинея\",\"name:lg\"=>\"Gayana ey'oku ekweta\",\"name:li\"=>\"Equatoriaal Guinee\",\"name:lij\"=>\"Guinea Equatoriâ\",\"name:lmo\"=>\"Guinea Equaturiala\",\"name:ln\"=>\"Gine-Ekwatorial\",\"name:lo\"=>\"ອີຄົວໂທເລຍກີເນຍ\",\"name:lt\"=>\"Pusiaujo Gvinėja\",\"name:lv\"=>\"Ekvatoriālā Gvineja\",\"name:mg\"=>\"Guinea Ekoatera\",\"name:mi\"=>\"Kini Ekuatoria\",\"name:min\"=>\"Guinea Khatulistiwa\",\"name:mk\"=>\"Екваторијална Гвинеја\",\"name:ml\"=>\"ഇക്വറ്റോറിയല്‍ ഗിനി\",\"name:mn\"=>\"Экваторын Гвиней\",\"name:mr\"=>\"इक्वेटोरीयल गिनी\",\"name:mrj\"=>\"Экваториаль Гвиней\",\"name:ms\"=>\"Guinea Khatulistiwa\",\"name:mt\"=>\"Ginea Ekwatorjali\",\"name:my\"=>\"အီကွေတာ ဂီရာနာ\",\"name:na\"=>\"Gini t Ekwador\",\"name:nah\"=>\"Guinea Tlahcotlālticpac\",\"name:nb\"=>\"Ekvatorial-Guinea\",\"name:nds\"=>\"Äquatoriaal-Guinea\",\"name:ne\"=>\"भू-मध्यीय गिनी\",\"name:nl\"=>\"Equatoriaal-Guinea\",\"name:nn\"=>\"Ekvatorial-Guinea\",\"name:no\"=>\"Ekvatorial-Guinea\",\"name:nov\"=>\"Equatoral Gini\",\"name:nso\"=>\"Equatorial Guinea\",\"name:nv\"=>\"Gíní Nahasdzáán Ałníiʼgi Siʼánígíí\",\"name:oc\"=>\"Guinèa Eqüatoriala\",\"name:or\"=>\"ଇକ୍ବାଟେରିଆଲ୍ ଗୁଇନିଆ\",\"name:os\"=>\"Экваториалон Гвиней\",\"name:pa\"=>\"ਭੂ-ਮੱਧ ਰੇਖਾਈ ਗਿਨੀ\",\"name:pam\"=>\"Equatorial Guinea\",\"name:pih\"=>\"Ekwatoryal Gini\",\"name:pl\"=>\"Gwinea Równikowa\",\"name:pms\"=>\"Guinea Equatorial\",\"name:pnb\"=>\"استوائی گنی\",\"name:ps\"=>\"اېکواټوريال ګوينا\",\"name:pt\"=>\"Guiné Equatorial\",\"name:qu\"=>\"Chawpipacha Khiniya\",\"name:rm\"=>\"Guinea Equatoriala\",\"name:rn\"=>\"Gineya Ekwatoriyali\",\"name:ro\"=>\"Guineea Ecuatorială\",\"name:ru\"=>\"Экваториальная Гвинея\",\"name:rw\"=>\"Gineya Ekwatoriyale\",\"name:sah\"=>\"Экуатор Гуинеята\",\"name:sc\"=>\"Guinea Ecuadoriale\",\"name:scn\"=>\"Guinia Ecuaturiali\",\"name:sco\"=>\"Equatorial Guinea\",\"name:se\"=>\"Beaivvedási Guinea\",\"name:sg\"=>\"Ginëe tî Ekuatëre\",\"name:sh\"=>\"Ekvatorijalna Gvineja\",\"name:si\"=>\"සමක ගිනියාව\",\"name:sk\"=>\"Rovníková Guinea\",\"name:sl\"=>\"Ekvatorialna Gvineja\",\"name:sn\"=>\"Equatorial Guinea\",\"name:so\"=>\"Equatorial Guinea\",\"name:sq\"=>\"Guineja Ekuatoriale\",\"name:sr\"=>\"Екваторијална Гвинеја\",\"name:stq\"=>\"Äquatorioal Guinea\",\"name:su\"=>\"Guinéa Khatulistiwa\",\"name:sv\"=>\"Ekvatorialguinea\",\"name:sw\"=>\"Guinea ya Ikweta\",\"name:ta\"=>\"எக்குவடோரியல் கினி\",\"name:te\"=>\"ఎక్వేటోరియాల్ గినియా\",\"name:tg\"=>\"Гвинеяи Истивоӣ\",\"name:th\"=>\"ประเทศอิเควทอเรียลกินี\",\"name:ti\"=>\"ኢኳቶሪያል ጊኒ\",\"name:tk\"=>\"Ekwatorial Gwineýa\",\"name:tl\"=>\"Gineang Ekwatoriyal\",\"name:to\"=>\"ʻEkueta Kini\",\"name:tok\"=>\"ma Kinejekatolija\",\"name:tr\"=>\"Ekvator Ginesi\",\"name:ts\"=>\"Equatorial Guinea\",\"name:tt\"=>\"Экваториаль Гвинея\",\"name:ug\"=>\"Ékwator Gwinéyisi\",\"name:uk\"=>\"Екваторіальна Гвінея\",\"name:ur\"=>\"استوائی گنی\",\"name:uz\"=>\"Ekvatorli Gvineya\",\"name:vec\"=>\"Guinea Equatorial\",\"name:vi\"=>\"Guinea Xích Đạo\",\"name:vo\"=>\"Kveatora-Gineyän\",\"name:war\"=>\"Guinea Ecuatorial\",\"name:wo\"=>\"Gineg yamoo\",\"name:xal\"=>\"Экватор Гвинемудин Орн\",\"name:yi\"=>\"עקוואטארישע גינע\",\"name:yo\"=>\"Orílẹ́ède Ekutoria Gini\",\"name:zea\"=>\"Equatoriaol Hunea\",\"name:zh\"=>\"赤道几内亚\",\"name:zh-min-nan\"=>\"Chhiah-tō Guinea\",\"name:zh_pinyin\"=>\"Chìdào Jīnèiyà\",\"name:zh-yue\"=>\"赤道畿內亞\",\"name:zu\"=>\"i-Equatorial Guinea\",\"official_name\"=>\"República de Guinea Ecuatorial;République de Guinée équatoriale;República da Guiné Equatorial\",\"official_name:be\"=>\"Рэспубліка Экватарыяльная Гвінея\",\"official_name:el\"=>\"Δημοκρατία της Ισημερινής Γουινέας\",\"official_name:eo\"=>\"Respubliko de Ekvatora Gvineo\",\"official_name:et\"=>\"Ekvatoriaal-Guinea Vabariik\",\"official_name:id\"=>\"Republik Guinea Khatulistiwa\",\"official_name:lt\"=>\"Pusiaujo Gvinėjos Respublika\",\"official_name:lv\"=>\"Ekvatoriālās Gvinejas Republika\",\"official_name:pt\"=>\"República da Guiné Equatorial\",\"official_name:sv\"=>\"Republiken Ekvatorialguinea\",\"population\"=>\"1000000\",\"sqkm\"=>\"28051\"" }, "geometry": { "type": "Point", "coordinates": [ 10.5170357, 1.613172 ] } },
+{ "type": "Feature", "properties": { "osm_id": "520140660", "name": "Ebebiyín", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": null, "place": "city", "man_made": null, "other_tags": "\"name:ru\"=>\"Эбебийин\",\"population\"=>\"36565\",\"wikidata\"=>\"Q911358\"" }, "geometry": { "type": "Point", "coordinates": [ 11.3370815, 2.1537363 ] } },
+{ "type": "Feature", "properties": { "osm_id": "667646869", "name": "Niefang", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": null, "place": "town", "man_made": null, "other_tags": "\"old_name\"=>\"Sevilla de Niefang\",\"wikidata\"=>\"Q2550461\",\"wikipedia\"=>\"en:Niefang\"" }, "geometry": { "type": "Point", "coordinates": [ 10.250384, 1.849973 ] } },
+{ "type": "Feature", "properties": { "osm_id": "667649688", "name": "Evinayong", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": null, "place": "town", "man_made": null, "other_tags": "\"name:ru\"=>\"Эвинайонг\",\"wikidata\"=>\"Q1988320\"" }, "geometry": { "type": "Point", "coordinates": [ 10.5516564, 1.4388356 ] } },
+{ "type": "Feature", "properties": { "osm_id": "667651748","icon": "airport", "name": "Mongomo", "barrier": null, "highway": null, "ref": null, "address": null, "is_in": null, "place": "city", "man_made": null, "other_tags": "\"name:es\"=>\"Mongomo de Guadalupe\",\"name:ru\"=>\"Монгомо\",\"wikidata\"=>\"Q526539\",\"wikipedia\"=>\"es:Mongomo\"" }, "geometry": { "type": "Point", "coordinates": [ 11.311975, 1.626164 ] } }
+]
+};
+
+
+// This adds the data to the map
+ /*   map.on('load', function (e) {
+        // Add the data to your map as a layer
+      map.addLayer({
+        "id": "locations",
+        "type": "line",
+        // Add a GeoJSON source containing place coordinates and information.
+        "source": {
+          "type": "geojson",
+          "data": store1
+        },
+        "layout": {
+          "icon-image": "mapbox-icon.png",
+          "icon-allow-overlap": true,
+        }
+      });
+    });*/
+   
+ 
+
+map.addControl(new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken
+}));
+map.addControl(new mapboxgl.NavigationControl());
+map.addControl(new mapboxgl.FullscreenControl());
+// Add geolocate control to the map.
+map.addControl(new mapboxgl.GeolocateControl({
+    positionOptions: {
+        enableHighAccuracy: true
+    },
+    trackUserLocation: true
+}));
+map.addControl(new mapboxgl.ScaleControl({
+    maxWidth: 80,
+    unit: 'imperial'
+}));
+// add markers to map
+store1.features.forEach(function(marker) {
+
+  // create a HTML element for each feature
+  var el = document.createElement('div');
+  el.className = 'marker';
+
+  // make a marker for each feature and add to the map
+  new mapboxgl.Marker(el)
+  .setLngLat(marker.geometry.coordinates)
+  .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+  .setHTML('<h3>' + marker.properties.name + '</h3><p>' + marker.properties.place + '</p>'))
+  .addTo(map);
+});
+
+
+</script>
+
+</body>
+</html>
