@@ -96,23 +96,35 @@ var store1 =
 };
 
 
-// This adds the data to the map
- /*   map.on('load', function (e) {
-        // Add the data to your map as a layer
-      map.addLayer({
-        "id": "locations",
-        "type": "line",
-        // Add a GeoJSON source containing place coordinates and information.
-        "source": {
-          "type": "geojson",
-          "data": store1
-        },
-        "layout": {
-          "icon-image": "mapbox-icon.png",
-          "icon-allow-overlap": true,
-        }
-      });
-    });*/
+map.on('load', function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', "university_usa.geojson");
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var data = JSON.parse(xhr.responseText);
+
+                    map.addLayer({
+                        "id": "university",
+                        "type": "symbol",
+                        "source": {
+                            "type": "geojson",
+                            "data": data
+                        },
+                        "layout": {
+                            "icon-image": "university-15",
+                            "text-field": "{name}",
+                            "text-size": 8,
+                            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+                            "text-offset": [0, 0.6],
+                            "text-anchor": "top"
+                        }
+                    });
+
+                }
+            };
+            xhr.send();
+        });
    
  var layerList = document.getElementById('menu');
 var inputs = layerList.getElementsByTagName('input');
