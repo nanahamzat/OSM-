@@ -123,15 +123,15 @@ map.on('load', function () {
 
                 }//Add a geojson point source.
 //Heatmap layers also work with a vector tile source.
-map.addSource('prisons', {
+map.addSource('university', {
     "type": "geojson",
     "data": dataSource
 });
 
 map.addLayer({
-    "id": "prisons-heat",
+    "id": "university-heat",
     "type": "heatmap",
-    "source": "prisons",
+    "source": "university",
     "maxzoom": 9,
     "paint": {
         //Increase the heatmap weight based on frequency and property magnitude
